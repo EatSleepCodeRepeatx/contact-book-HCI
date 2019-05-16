@@ -1,4 +1,4 @@
-# Command-Line-App
+# Electron-Desktop-App
 
 ## Project setup
 ```
