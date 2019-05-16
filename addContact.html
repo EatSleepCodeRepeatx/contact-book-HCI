@@ -1,0 +1,122 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Contact Page UI Design</title>
+
+		  <link rel="stylesheet" href="addContact.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    
+</head>
+<body>
+     <script Language="JavaScript">
+            var width=600;
+            var height=800;
+            self.moveTo((screen.availwidth-width)/2,(screen.availheight-height)/2);
+            self.resizeTo(width,height);
+     </script>
+    <br>
+		<div class="container"style="float:left">
+		  <div class="col-lg-8 m-auto d-block">
+			<form>
+				<div class="form-group">
+                        <p> First Name: <input type="text" name="fname" id="fnames" class="form-control" autocomplete="off" placeholder=" i.e. Derick">
+                        <h5 id="fnamecheck">
+                     </h5> 
+                    </div>
+                    <div class="form-group">
+                        <p>Last Name: <input type="text" name="lname" id="lnames" class="form-control" autocomplete="off" placeholder=" i.e.  Knight"> </p>
+                        <h5 id="lnamecheck"> </h5> 
+                    </div>              
+                    <div class="form-group">
+                     
+                        <div class = "row">
+                            <div class = "column">
+                                <p>Day of Birth</p>
+                                <input id="bodM" type="number" min="1" max="12" placeholder="MM" autocomplete="off" style="float:left">                    
+                                <h5 id="dobcheck1"> </h5>  
+                                <input id="bodD" type="number" min="1" max="31"  placeholder="DD" autocomplete="off" style="float:left">
+                   	            <h5 id="dobcheck2"> </h5>
+                                <input id="bodY" type="number" min="1900" max="2100" placeholder="YY" autocomplete="off" style="float:left">
+                                <h5 id="dobcheck3"> </h5>
+                            </div>
+                            <div class = "column">
+                                <p>Gender</p>
+                                <select id="gender">
+                                    <option Value=" "></option>
+                                    <option Value="Male">Male</option>
+                                    <option Value="Female">Female</option>
+                               </select>
+                                <h5 id="gencheck"> </h5>  
+                            </div>
+                            
+                            <div class = "column">
+                                <p>Age</p>
+                                 <input id="age" type="number" min="1" max="100" placeholder="Age" autocomplete="off" style="float:left">
+                                <h5 id="agecheck"> </h5>  
+                            </div>
+                   	  
+                   	 
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <p>Number: <input type="text" name="text" id="numbers" class="form-control" autocomplete="off" placeholder=" i.e. (123)-456-7890">
+                        <h5 id="numbercheck"> </h5>
+                    </div>
+                    <div class="form-group">
+                        <p> Address:  <input type="text" name="address" id="addresss" class="form-control" autocomplete="off" placeholder=" i.e. 123 Example Street,123 Example ave, 123 Example avenue etc."></p>                  
+                        <h5 id="addresscheck"> </h5> 
+                    </div>
+                    <div class="form-group">
+                        <p> Email: <input type="email" name="email" id="emails" class="form-control" autocomplete="off" placeholder=" i.e. example@email.com"></p>                  
+                        <h5 id="emailcheck"> </h5> 
+                    </div>
+                    <div class="form-group">
+                        <p> Company:   <input type="text" name="company" id="companys" class="form-control" autocomplete="off" placeholder=" i.e. FB, Google etc."></p>                  
+                        <h5 id="companycheck"> </h5> 
+                    </div>
+                    <div class="form-group">
+                        <p> Photo:<input type="file" id="photos"accept="image/*"></p>                             
+                        <h5 id="phvalidcheck"> </h5> 
+                    
+                    </div>
+
+				<button id="addbtn">Add</button>
+                <button id="cancelbtn">Cancel</button> 
+            
+			</form><br>
+              <script>
+                        $(function () {
+                            $(":file").change(function () {
+                                if (this.files && this.files[0]) {
+                                    var reader = new FileReader();
+                                    reader.onload = imageIsLoaded;
+                                    reader.readAsDataURL(this.files[0]);
+                                   // filePath1 = this.files[0];
+                                }
+                            });
+                        });
+                            function imageIsLoaded(e) {
+                                var str = e.target.result;
+                                alert(str);
+                                $('#pic').attr('src', e.target.result);
+                            };
+              </script>
+          <script src="./addressbook.js">     
+              </script>
+		  </div>
+	   </div>
+</body>
+</html>
+

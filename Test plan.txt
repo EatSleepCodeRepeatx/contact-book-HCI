@@ -1,0 +1,190 @@
+
+				Test Plan
+
+Description 
+
+This document is created for the testing purpose of desktop electron app program. The objective is to identify any unknown bugs within the program and report them.
+
+
+
+Desktop electron app
+
+The project is designed with Node.js, NPM and Electron where Node.js contains the feature of the Javascript that can be used to decorate the applet's element and NPM allows user to execute the project from the command line mode, and Electron framework provides a basic skeleton for the project.
+
+
+
+Test for first name 
+
+behavior: entered numeric value 
+expected: invalid input message, first name can't contain numeric value
+
+behavior: entered input contains whitespace
+expected: invalid input message, first name can't contain white space
+
+behavior: entered input contains special character
+expected: invalid input message, first name can't contain special character
+
+behavior: length of entered first name is one 
+expected: invalid input message, first name shouldn't contain only one character
+
+behavior: first name field is empty
+expected: invalid input message, first name field can't be left blank
+
+behavior: entered input contains alphabet only, doesn't contains any invalid input
+expected: no error message should be displayed 
+
+
+
+Test for last name 
+
+behavior: entered numeric value 
+expected: invalid input message, last name can't contain numeric value
+
+behavior: entered input contains whitespace
+expected: invalid input message, last name can't contain white space
+
+behavior: entered input contains special character
+expected: invalid input message, last name can't contain special character
+
+behavior: length of entered first name is one 
+expected: invalid input message, last name shouldn't contain only one character
+
+behavior: first name field is empty
+expected: invalid input message, last name field can't be left blank
+
+behavior: entered input contains alphabet only, doesn't contains any invalid input
+expected: no error message should be displayed 
+
+
+
+Test for DOB which applies to month field, day field, and year field 
+
+behavior: entered alphabetic letter, special character or whitespace 
+expected: invalid input message, because DOB only accepts numerical value
+
+behavior: month field is greater than 12 or is 0
+expected: invalid input message, because there is only 12 months in a year,
+	  not 0, 13 or other value 
+
+behavior: day filed is greater than 31 or is 0
+expected: invalid input message, because there is only 31 days in a month,
+	  and 0 is not a accepting input for the day filed
+
+behavior: year filed is greater than 2100 or less than 1900
+expected: invalid input message, because it is not possible to have someone who
+          born in 1900 to use this app
+
+behavior: entered correct format of the DOB
+expected: no error message should be displayed at this point 
+
+
+
+Test for gender
+
+behavior: this filed is an optional, so nothing would happen if user doesn't give an input
+expected: no error message should be displayed at this point 
+
+
+Test for age
+
+behavior: entered numeric value 
+expected: no error message should be displayed 
+
+behavior: entered special character
+expected: invalid input, special character is not allowed
+
+behavior: entered special letter
+expected: invalid input, letter is not allowed
+
+
+
+Test for phone number
+
+behavior: entered alphabetic letter
+expected: invalid input, number should not contains letter
+
+behavior: numeric value field of input is less than 10  
+expected: invalid input, number format is incorrect 
+
+behavior: numeric value field of input is greeter than 10  
+expected: invalid input, number format is incorrect
+
+
+Test for address
+
+behavior: length of input is less than 6
+expected: invalid input, because length should be more than 6, 
+	  for example,1 ex st. we have 1 number, 1 street name with length 2,
+	  1 st sign which contains 2 letters, and 2 whitespace, so the total 
+          length is 7, hence, the length of address input should be more than 6
+
+behavior: entered special character 
+expected: invalid input, address doesn't contain special character
+
+behavior: entered address input is in the correct format
+expected: nothing happen, since address system works differently in the different 		  countries, so there is not specify constraint being set up for this filed
+
+Test for email
+
+behavior: enter special characters 
+expected: invalid input message, email should not contains special char
+
+behavior: invalid @ position
+expected: invalid input message, invalid @ position 
+
+behavior: invalid . position
+expected: invalid input message, invalid . position
+
+
+Test for company name
+
+behavior: entered input contains special character
+expected: invalid input message, last name can't contain special character
+
+behavior: length of entered input is one 
+expected: invalid input message, company name shouldn't contain only one character
+
+behavior: field is empty
+expected: invalid input message, field can't be left blank
+
+behavior: company name is in the correct format
+expected: nothing happen
+
+
+Test for add photo 
+
+behavior: uploaded file's extension is valid
+expected: nothing happen
+
+behavior: uploaded file's extension is invalid
+expected: invalid input message, file is not acceptable in the picture aspect 
+
+Test for cancel button
+
+behavior: click the button
+expected: all the filled in information will be removed, and the windows will be closed 
+
+
+Test for add button
+
+behavior: click the data 
+expected: check all the fields, if there is no error found, the windows will be closed, and 	  all input data will be written into vCard.txt file for the late use 
+
+
+Test for drag and drop session
+
+behavior: drag and drop file
+expected: upload the file   
+
+
+Test for trash can icon 
+
+behavior: click the icon
+expected: the person get selected will be removed from contact list
+
+Test for add button on the main windows 
+
+behavior: click the add button
+expected: open a windows, and the window can be used to add new person to the contract list
+
+

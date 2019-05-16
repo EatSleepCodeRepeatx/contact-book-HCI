@@ -1,0 +1,65 @@
+body{
+	margin: 0;
+	padding: 0;
+	background-image: url("bg.png");
+	background-size: cover;
+	font-family:Tahoma, sans-serif; 
+    background-repeat: no-repeat;
+    background-size: 1500px 1500px;;
+}
+.form-group p{
+  font-family: Book Antiqua;
+  font-style: italic;
+  font-weight:100
+}
+ .container{
+	margin-bottom: 1px solid black;
+ 	transform: translate(10%,6%); 
+ 	width:40px; 
+ 	height:auto; 
+ 	box-sizing: border-box; 
+ 	background: rgba(0,0,0,0.3); 
+ 	padding: 20px; 
+}
+
+::placeholder{
+	color:gray;
+}
+
+button{
+	border:none;
+    display: inline-block;
+    font-size: 24px;
+	height: 30px;
+	outline: none;
+	color:#ffffff;
+	font-size:15px;
+	color:grey;
+    text-align: center;
+	background: antiquewhite;
+	cursor:pointer;
+    border-radius: 50px;
+}
+button:hover{background-color: #F8F1F8}
+button:active {
+  background-color: #F8F1F0;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+h5{
+    font-family: "Times New Roman";
+    font-size: 5px;
+    color:aqua;
+}
+.column {
+  left: 20px;
+  width: 33.33%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}

@@ -1,0 +1,95 @@
+/* zero out margins and padding to get full bleed effect */
+html, body {
+  margin:0;
+  padding:0;
+  height:100%;
+}
+
+/* this is the wrapper around the entire app */
+.contactapp {
+  background: WHITE;
+  display:flex;
+  justify-content: center;
+  align-items: stretch;
+  height:100%;
+}
+
+/* left column, list of contacts */
+.contactlist {
+  padding:0px;
+  margin:10px;
+  min-height: 200px;
+  flex-basis:60%;
+}
+
+.contactlist table {
+  width:100%;
+  margin:0;
+  border-spacing: 0px;
+  padding:5px;
+}
+
+.contactlist tr:nth-child(even) {
+  background:lightgray;
+}
+
+.contactlist tr:hover {
+  background: pink;
+  color:white;
+  cursor:pointer;
+}
+
+/* right column, contact details */
+.contact{
+  background: #F8F1F1;
+  padding:0px;
+  margin:0px;
+  height:100%;
+  float:right;
+  flex-basis: 40%;
+}
+
+.contactpic{
+  text-align:center;
+  padding:10px;
+}
+
+.contact table {
+  padding:5px;
+  margin:15px;
+  background:white;
+  width:90%;
+}
+.contactin{
+  background:#F8F1F8;
+  margin: 0 auto;
+  font-family: "Palatino Linotype";
+  font-style: italic;
+  font-weight: 350;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+#drop_zone{
+  background:#F8F1F9;
+  margin: 0 auto;
+  font-family: "Palatino Linotype";
+  font-style: italic;
+  font-weight: 260;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+h1{
+  background:transparent;
+  margin: 0 auto;
+  font-family: Book Antiqua;
+  font-style: italic;
+  color:brown;
+  font-weight: 210;
+  letter-spacing: 1px;
+}
+th{
+  font-family: Book Antiqua;
+  font-style: italic;
+  font-weight:100
+}
+

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Contacts</title>
+  <link rel="stylesheet" href="addressbook.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    
+    </head>
+<body>
+        
+  <style type="text/css">
+    #div1 {
+      width: 350px;
+      height: 70px;
+      padding: 10px;
+      border: 1px solid #aaaaaa;
+      text-align: center;
+    }
+  </style>
+  <div class="contactapp">
+
+    <div class="contactlist">
+      <div>
+      <h1>Contact List<span style="float:right"><i class="fas fa-plus-square" onclick="showAddContactModal();"></i></span></h1>
+      </div>
+      <hr>
+      <table id="contactlist">
+        <tr><th>Name</th><th>Number</th></tr>
+      </table>
+    </div>
+      
+    <div class="contact">
+      <div class="contactpic">
+        <img src="default.png" id="pic"width="150px" >  
+        <div style="text-align:center">
+          <span style="color:white"><i id="deletebtn" class="fas fa-trash-alt"></i></span>
+        </div>
+
+      </div>
+      <div class="contactinfo">
+        <table>
+          <tr class="contactin">
+            <td>
+              Name
+            </td>
+            <td id="selectedname">
+
+            </td>
+          </tr>
+<!--
+            
+            <tr class="contactin">
+            <td>
+              Age
+            </td>
+            <td id="selectedage">
+
+            </td>
+          </tr>
+-->
+            
+              <tr class="contactin">
+            <td>
+              Gender
+            </td>
+            <td id="selectedgender">
+
+            </td>
+          </tr>
+            
+            
+            
+            
+            
+          <tr class="contactin">
+            <td>
+              Number
+            </td>
+            <td id="selectednumber">
+            </td>
+          </tr>
+          
+          <tr class="contactin">
+            <td>
+              DOB
+            </td>
+            <td id="selectedbod">
+            </td>
+          </tr>
+            
+          <tr class="contactin">
+            <td>
+              Address
+            </td>
+            <td id="selectedaddress">
+            </td>
+          </tr>
+        
+          <tr class="contactin">
+          <td>
+              Email
+            </td>
+            <td id="selectedemail">
+            </td>
+          </tr>
+          
+         <tr class="contactin">
+            <td>
+              Company
+            </td>
+            <td id="selectedcompany">
+            </td>
+          </tr>
+       
+        </table>
+           <div id="drop_zone" style="position:relative;left:18px">Drop file here</div>
+          
+      </div>
+        <output id="list" style ="color:saddlebrown;font-weight: 300; font-size: 20; font-family:Palatino Linotype"></output>
+    </div>
+       
+  </div>
+    
+    
+</body>
+
+  
+<!-- add scripts at the bottom, so that the DOM is defined when they load -->
+<script src="./addressbook.js"></script>
+    <script>
+  function handleFileSelect(evt) {
+    evt.stopPropagation();
+    evt.preventDefault();
+
+    var files = evt.dataTransfer.files; // FileList object.
+
+    // files is a FileList of File objects. List some properties.
+    var output = [];
+    var k;
+    for (var i = 0, f; f = files[i]; i++) {
+      output.push('<li><strong>', escape(f.name),'</li>');
+      output.push("Uploaded Successfuly")
+      var k = f.name;
+    }
+     // addFile(k);
+      document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
+    
+  }
+  
+  
+//function addFile(filename){
+//    let data = fs.readFileSync(filename, 'utf8');
+ //   var cards = vCard.parse(data);
+//    cards.forEach((card, index) => {
+//      fs.appendFileSync('contacts.txt', card.get("n")+","+card.get("tel")+","+card.get("adr")+","+card.get("org")+","+card.get("email")+'\n',  (err) => {
+//        if (err) throw err;
+//        console.log("the data was appended!");
+//      });
+//    });
+//}
+  function handleDragOver(evt) {
+    evt.stopPropagation();
+    evt.preventDefault();
+    evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
+  }
+
+  // Setup the dnd listeners.
+  var dropZone = document.getElementById('drop_zone');
+  dropZone.addEventListener('dragover', handleDragOver, false);
+  dropZone.addEventListener('drop', handleFileSelect, false);
+</script>
+<script>
+
+  // when the document loads, load the contact list from file
+  $(document).ready(loadAndDisplayContacts());
+  require('electron').ipcRenderer.on('asynchronous-message', (event, message) => {
+        console.log(message)
+        if (message === "refreshList"){
+          loadAndDisplayContacts()
+        }
+        else if (message === "importFile"){
+          const {dialog} = require('electron').remote;
+          dialog.showOpenDialog(function (fileNames) {
+              // fileNames is an array that contains all the selected
+              if(fileNames === undefined) {
+                 console.log("No file selected");
+              } else {
+                 fileNames.forEach((fileName, index) => {importFile(fileName)});
+              }
+          });
+        }
+        else if (message === "exportFile"){
+          exportFile();
+        }
+  })
+</script>
+
+</html>

@@ -1,0 +1,3 @@
+William Feng,3489728997,11/23/1998,76 Erik St,xinxin@gmail.com,FB,undefined
+Eric Wang,45679993877,1/12/1992,123 example st,xinxinw@gmail.com,FB,23,Male,[object File]
+Derick Knight,1234567890,11/11/1911,123 Example st,justfortestin@gmail.com,UB,23,Male,[object File]
